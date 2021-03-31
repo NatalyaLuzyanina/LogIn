@@ -13,8 +13,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       // userName.delegate = self
         // Do any additional setup after loading the view.
     }
+    
+    
     
     // подготовка экрана приветствия
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,10 +47,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        print("bla1")
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        print("bla")
-        userName.text = welcomeVC.userName
+        guard segue.source is WelcomeViewController else { return }
+        userName.text = ""
         password.text = ""
     }
     
@@ -70,16 +72,43 @@ class LoginViewController: UIViewController {
             style: .default) {
             _ in textField.text = ""
             }
-        
-        
+
         messege.addAction(okAction)
         present(messege, animated: true)
     }
     
-  
-    
-    
-    
 }
 
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+                nextField.becomeFirstResponder()
+            } else {
+                textField.resignFirstResponder()
+                print("1")
+                return true;
+            }
+        print("2")
+            return false
+        }
+        
+}
 
+//extension LoginViewController: UITextViewDelegate {
+//
+//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//        if (text == "\n") {
+//            textView.resignFirstResponder()
+//        }
+//        return true
+//    }
+//}
+
+/*
+ print("123")
+ if (textField.text?.isEmpty != nil) {
+     print("ghjkl;'")
+     textField.resignFirstResponder()
+     logIn()
+ */
