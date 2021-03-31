@@ -11,7 +11,6 @@ class WelcomeViewController: UIViewController {
 
     @IBOutlet var welcomeLabel: UILabel!
     
-    // создаем переменную, чтобы передать в нее данные из логинВьюКонтроллер (сразу в welcomeLabel не получится тк вьюдидлоад еще не сработал и welcomeLabel = нил
     var userName: String!
     
     override func viewDidLoad() {
@@ -19,6 +18,4 @@ class WelcomeViewController: UIViewController {
         
         welcomeLabel.text = "Welcome, \(userName ?? "")!"
     }
-
-
 }
