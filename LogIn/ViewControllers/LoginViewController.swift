@@ -13,22 +13,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordTF: UITextField!
     
     // MARK: - Private properties
-    private let user = "User"
-    private let password = "Password"
+    private let user = User.getUser()
     
-    // MARK: Navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.userName = user
+        let tabBarController = segue.destination as! UITabBarController
+        
+        for viewController in tabBarController.viewControllers! {
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.userName = "\(user.person.name) \(user.person.surname)"
+            } else if let navigationVC = viewController as? UINavigationController {
+                let aboutUserVC = navigationVC.topViewController as! AboutUserViewController
+                aboutUserVC.name = user.person.name
+                aboutUserVC.surname = user.person.surname
+                aboutUserVC.age = user.person.age
+                aboutUserVC.hobbies = user.person.hobbies
+                aboutUserVC.birthplace = user.person.birthplace
+                aboutUserVC.livingCity = user.person.livingCity
+                aboutUserVC.hobbyDescription = user.person.hobbyDescription
+            }
+        }
     }
     
     // MARK: - IBActions
     @IBAction func logIn() {
-        guard userNameTF.text == user, passwordTF.text == password else {
-            showAlert(messege: "Please, enter correct login and passwrd.", title: "Invalid username or password!", for: passwordTF)
+        guard userNameTF.text == user.login, passwordTF.text == user.password else {
+            showAlert(messege: "Please, enter correct login and password.", title: "Invalid username or password!", for: passwordTF)
             return
         }
-        
         performSegue(withIdentifier: "showWelcomVC", sender: nil)
     }
     
@@ -39,9 +51,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func forgotRegisterData(_ sender: UIButton) {
         if sender.tag == 0 {
-            showAlert(messege: "Your name is User", title: "Oops!")
+            showAlert(messege: "Your name is \(user.login))", title: "Oops!")
         } else {
-            showAlert(messege: "Your password is Password", title: "Oops!")
+            showAlert(messege: "Your password is \(user.password)", title: "Oops!")
         }
     }
    
