@@ -102,33 +102,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="e97df14033f5f1ca346440b5f0b4255b" translatesAutoresizingMaskIntoConstraints="NO" id="3rf-D3-6sr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fB2-zk-lzw">
                                 <rect key="frame" x="119.5" y="381" width="81" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="LogOut"/>
+                                <state key="normal" title="LogOut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="820-zV-NbG" kind="unwind" unwindAction="unwindFor:" id="oOW-SD-pFk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTE-1D-Odk">
-                                <rect key="frame" x="20" y="181" width="280" height="42"/>
+                                <rect key="frame" x="20" y="150" width="280" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="textColor" red="0.29358446599999999" green="0.61835634709999998" blue="0.44679003950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.29136571290000002" green="0.62195867299999996" blue="0.45516711469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8mo-Y3-ja0"/>
-                        <color key="backgroundColor" systemColor="systemGray2Color"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8mo-Y3-ja0" firstAttribute="bottom" secondItem="fB2-zk-lzw" secondAttribute="bottom" constant="96" id="3yx-mQ-PVC"/>
                             <constraint firstItem="oTE-1D-Odk" firstAttribute="centerX" secondItem="8mo-Y3-ja0" secondAttribute="centerX" id="CsA-ZD-mTF"/>
-                            <constraint firstItem="oTE-1D-Odk" firstAttribute="top" secondItem="8mo-Y3-ja0" secondAttribute="top" constant="181" id="a7q-JF-NDO"/>
+                            <constraint firstItem="3rf-D3-6sr" firstAttribute="top" secondItem="vTN-eN-skp" secondAttribute="top" id="HHN-Ks-bA8"/>
+                            <constraint firstAttribute="bottom" secondItem="3rf-D3-6sr" secondAttribute="bottom" id="V6h-O9-ZL1"/>
+                            <constraint firstItem="oTE-1D-Odk" firstAttribute="top" secondItem="8mo-Y3-ja0" secondAttribute="top" constant="150" id="a7q-JF-NDO"/>
+                            <constraint firstAttribute="trailing" secondItem="3rf-D3-6sr" secondAttribute="trailing" id="abx-p2-Gxq"/>
                             <constraint firstItem="oTE-1D-Odk" firstAttribute="leading" secondItem="8mo-Y3-ja0" secondAttribute="leading" constant="20" id="fzA-s3-SYB"/>
                             <constraint firstItem="8mo-Y3-ja0" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oTE-1D-Odk" secondAttribute="trailing" constant="20" id="hUk-fm-Ueg"/>
+                            <constraint firstItem="3rf-D3-6sr" firstAttribute="leading" secondItem="vTN-eN-skp" secondAttribute="leading" id="lkG-31-yja"/>
                             <constraint firstItem="fB2-zk-lzw" firstAttribute="centerX" secondItem="8mo-Y3-ja0" secondAttribute="centerX" id="zC2-UQ-mfJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="arrow.up.message.fill" catalog="system" id="9av-Lt-qXw"/>
+                    <tabBarItem key="tabBarItem" title="" image="arrow.up.message.fill" catalog="system" id="9av-Lt-qXw">
+                        <color key="badgeColor" red="0.29358446599999999" green="0.61835634709999998" blue="0.44679003950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="dES-a5-gO0"/>
                     <connections>
                         <outlet property="welcomeLabel" destination="oTE-1D-Odk" id="ccL-fA-G1m"/>
@@ -271,7 +282,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nJ2-0V-Sh1">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="tintColor" red="0.39535576109999998" green="0.86670845750000003" blue="0.5831362605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="b5B-8i-8MG" kind="relationship" relationship="viewControllers" id="i2m-W8-6sV"/>
@@ -286,7 +298,9 @@
         <scene sceneID="U2j-w5-3Uk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dot-Gx-XAS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Natalya Luzyanina" image="person.fill" catalog="system" id="8Xz-G0-NVe"/>
+                    <tabBarItem key="tabBarItem" title="Natalya Luzyanina" image="person.fill" catalog="system" id="8Xz-G0-NVe">
+                        <color key="badgeColor" red="0.29136571290000002" green="0.62195867299999996" blue="0.45516711469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dz7-aG-LPf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -305,15 +319,16 @@
     <resources>
         <image name="arrow.up.message.fill" catalog="system" width="128" height="113"/>
         <image name="depositphotos_188592806-stock-photo-vintage-retro-watercolor-camera-perfect" width="600" height="600"/>
+        <image name="e97df14033f5f1ca346440b5f0b4255b" width="564" height="1001"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
